@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 08:34:00 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/26 20:26:09 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/26 23:28:53 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,65 +41,45 @@ int	get_closest_b(t_var *stack_info)
 		return (first);
 }
 
-// static void	check_shortest_b(t_var *stack_info, int *b_val, int a_index)
-// {
-// 	int			a_steps;
-// 	int			b_steps;
-// 	int			n;
-// 	int			old;
+static void	check_shortest_a(t_var *stack_info, int *a_val, int b_index)
+{
+	int			a_steps;
+	int			b_steps;
 
-// 	n = stack_info->atop;
-// 	old = a_index;
-// 	a_steps = 0;
-// 	b_steps = 0;
-// 	sort_b(stack_info, a_index);
-// 	if (stack_info->atop - a_index <= a_index)
-// 	{
-// 		a_steps = stack_info->atop - a_index;
-// 		if (stack_info->btop - stack_info->index <= stack_info->index && stack_info->btop - stack_info->index >= n - old)
-// 			b_steps = (stack_info->btop - stack_info->index) - (n - old);
-// 		// b_steps = stack_info->btop - stack_info->index;
-// 		else if (stack_info->btop - (n - old) - 1 > 0 && stack_info->btop - (n - old) - 1 < stack_info->index + 1)
-// 			b_steps = stack_info->btop - (n - old) - 1;
-// 	}
-// 	else
-// 	{
-// 		a_steps = a_index + 1;
-// 		if (stack_info->btop - stack_info->index > stack_info->index && stack_info->index > old)
-// 			b_steps = stack_info->index - old;
-// 		else if (stack_info->index - old > 0 && stack_info->index - old < stack_info->btop - stack_info->index)
-// 			b_steps = stack_info->index - old;
-// 	}
-// 	if (a_steps + b_steps <= stack_info->total || !stack_info->total)
-// 	{
-// 		stack_info->total = a_steps + b_steps;
-// 		*b_val = a_index;
-// 	}
-// }
+	a_steps = 0;
+	b_steps = 0;
+	sort_a(stack_info, b_index);
+	if (stack_info->btop - b_index <= b_index)
+		b_steps = stack_info->btop - b_index;
+	else
+		b_steps = b_index + 1;
+	if (stack_info->atop - stack_info->a_index <= stack_info->a_index)
+		a_steps = stack_info->atop - stack_info->a_index;
+	else
+		a_steps = stack_info->a_index;
+	if (a_steps + b_steps <= stack_info->total || !stack_info->total)
+	{
+		stack_info->total = a_steps + b_steps;
+		*a_val = b_index;
+	}
+}
 
-// int	get_closest_b(t_var *stack_info)
-// {
-// 	int	i;
-// 	int	first_flag;
-// 	int	b_val;
+void	get_closest_a(t_var *stack_info)
+{
+	int	i;
+	int	a_val;
 
-// 	i = 0;
-// 	stack_info->total = 0;
-// 	first_flag = 0;
-// 	while (i <= stack_info->atop)
-// 	{
-// 		if (stack_info->a_stack[i] <= stack_info
-// 			->sorted_stack[stack_info->sorted_chunk])
-// 		{
-// 			first_flag = 1;
-// 			check_shortest_b(stack_info, &b_val, i);
-// 		}
-// 		i++;
-// 	}
-// 	if (!first_flag)
-// 		return (-1);
-// 	return (b_val);
-// }
+	i = 0;
+	stack_info->total = 0;
+	a_val = stack_info->btop;
+	while (i <= stack_info->btop)
+	{
+		sort_a(stack_info, i);
+		check_shortest_a(stack_info, &a_val, i);
+		i++;
+	}
+	stack_info->a_val = a_val;
+}
 
 int	go_to_closest_b(t_var *stack_info)
 {
@@ -152,5 +132,30 @@ void	sort_b(t_var *stack_info, int a_index)
 		i++;
 	}
 	stack_info->index = index;
+	// rotate_to(stack_info, 'b', index, stack_info->btop);
+}
+
+void	sort_a(t_var *stack_info, int b_index)
+{
+	int	i;
+	int	index;
+
+	i = 0;
+	index = stack_info->atop;
+	if (b_index < 0)
+		return ;
+	while (i < stack_info->atop)
+	{
+		if ((stack_info->b_stack[b_index] < stack_info->a_stack[i]
+				&& (stack_info->b_stack[b_index] > stack_info
+					->a_stack[i + 1]))
+			|| ((stack_info->b_stack[b_index] > stack_info
+					->a_stack[i + 1] || stack_info->b_stack[b_index]
+					< stack_info->a_stack[i]) && stack_info->a_stack[i]
+				< stack_info->a_stack[i + 1]))
+			index = i;
+		i++;
+	}
+	stack_info->a_index = index;
 	// rotate_to(stack_info, 'b', index, stack_info->btop);
 }

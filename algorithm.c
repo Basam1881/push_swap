@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 18:50:51 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/26 16:44:25 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 00:33:13 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_a(t_var *stack_info)
 	int	i;
 
 	printf("+-------A---------b--------S--------+\n");
-	i = 99;
+	i = 499;
 	while (i >= 0)
 	{
 		printf("stack a: %d\tstack b: %d\tstack s: %d\n", stack_info->a_stack[i], stack_info->b_stack[i], stack_info->sorted_stack[i]);
@@ -55,7 +55,9 @@ void	solver(t_var *stack_info)
 		sort_4(stack_info);
 	else if (stack_info->atop == 4)
 		sort_5(stack_info);
-	else
+	else if (stack_info->atop < 100)
 		big_sorter(stack_info);
+	else
+		big_big_sorter(stack_info);
 	// print_a(stack_info);
 }

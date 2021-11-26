@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 20:21:36 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/24 15:16:55 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 00:32:51 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,23 @@ void	rotate_to(t_var *stack_info, char c, int old, int n)
 {
 	if (c == 'a')
 	{
-		if (n - old <= old)
+		if (n - old <= old || stack_info->atop - old <= old - n)
 		{
 			while (old++ < n)
 			{
 				sort_b(stack_info, get_closest_b(stack_info));
-				if ((stack_info->btop - stack_info->index <= stack_info->index || stack_info->btop - (n - old) - 1 <= stack_info->index + 1) && stack_info->index < stack_info->btop)
+				if ((stack_info->btop - stack_info->index <= stack_info->index || stack_info->btop - (n - old) - 1 <= stack_info->index + 1) && stack_info->index < stack_info->btop && stack_info->sorted_top < 100)
 				{
 					rotate(stack_info, 'r');
 					stack_info->index++;
 				}
 				else
+					rotate(stack_info, 'a');
+			}
+			if (!n)
+			{
+				n = stack_info->atop + 2;
+				while (old++ < n)
 					rotate(stack_info, 'a');
 			}
 		}
@@ -83,7 +89,7 @@ void	rotate_to(t_var *stack_info, char c, int old, int n)
 			while (old-- >= 0)
 			{
 				sort_b(stack_info, get_closest_b(stack_info));
-				if ((stack_info->btop - stack_info->index > stack_info->index || stack_info->index - old <= stack_info->btop - stack_info->index) && stack_info->index >= 0)
+				if ((stack_info->btop - stack_info->index > stack_info->index || stack_info->index - old <= stack_info->btop - stack_info->index) && stack_info->index >= 0 && stack_info->sorted_top < 100)
 				{
 					rev_rotate(stack_info, 'r');
 					stack_info->index--;
