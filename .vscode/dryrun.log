@@ -1,6 +1,7 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/bnaji/Desktop/push_swap'
 /Library/Developer/CommandLineTools/usr/bin/make -C ./libft/ all
+ 
 make[1]: Entering directory `/Users/bnaji/Desktop/push_swap/libft'
 gcc -Wall -Wextra -Werror -c ft_atoi.c -o ft_atoi.o
 gcc -Wall -Wextra -Werror -c ft_bzero.c -o ft_bzero.o
@@ -31,6 +32,7 @@ gcc -Wall -Wextra -Werror -c ft_strtrim.c -o ft_strtrim.o
 gcc -Wall -Wextra -Werror -c ft_split.c -o ft_split.o
 gcc -Wall -Wextra -Werror -c ft_itoa.c -o ft_itoa.o
 gcc -Wall -Wextra -Werror -c ft_strmapi.c -o ft_strmapi.o
+ 
 gcc -Wall -Wextra -Werror -c ft_striteri.c -o ft_striteri.o
 gcc -Wall -Wextra -Werror -c ft_putchar_fd.c -o ft_putchar_fd.o
 gcc -Wall -Wextra -Werror -c ft_putstr_fd.c -o ft_putstr_fd.o
@@ -39,8 +41,8 @@ gcc -Wall -Wextra -Werror -c ft_putnbr_fd.c -o ft_putnbr_fd.o
 gcc -c -Wall -Wextra -Werror ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strrchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_tolower.c ft_toupper.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c -I ../so_long.h
 ar -rc libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strrchr.o ft_strdup.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_tolower.o ft_toupper.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o 
 make[1]: Leaving directory `/Users/bnaji/Desktop/push_swap/libft'
-gcc -c -Wall -Wextra -Werror algorithm.c initialize_validation.c operations_r.c operations_sp.c output.c main.c sorted.c sorters.c sorters_utils.c armored_atoi.c
-ar -r ft_push_swap.a algorithm.o initialize_validation.o operations_r.o operations_sp.o output.o main.o sorted.o sorters.o sorters_utils.o armored_atoi.o
+gcc -c -Wall -Wextra -Werror algorithm.c initialize_validation.c operations_r.c operations_sp.c output.c main.c sorted.c sorters.c sorters_utils.c armored_atoi.c sorters_utils2.c big_sorter.c sorters_utils3.c
+ar -r ft_push_swap.a algorithm.o initialize_validation.o operations_r.o operations_sp.o output.o main.o sorted.o sorters.o sorters_utils.o armored_atoi.o sorters_utils2.o big_sorter.o sorters_utils3.o
 libtool -static -o push_swap.a ft_push_swap.a ./libft/libft.a
 gcc push_swap.a -o push_swap
 make: Leaving directory `/Users/bnaji/Desktop/push_swap'

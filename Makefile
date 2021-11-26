@@ -1,7 +1,8 @@
 SRC_NAME = algorithm.c initialize_validation.c\
 			operations_r.c operations_sp.c output.c\
 			main.c sorted.c sorters.c sorters_utils.c\
-			armored_atoi.c
+			armored_atoi.c sorters_utils2.c big_sorter.c\
+			sorters_utils3.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

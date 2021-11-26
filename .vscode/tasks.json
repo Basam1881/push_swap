@@ -32,6 +32,7 @@
             "type": "shell"
         },
         {
+            
             "label": "rebug",
             "dependsOn":["make_dre", "C/C++: gcc build active file"]
         }

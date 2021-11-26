@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 02:05:55 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/18 06:13:14 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/23 17:41:34 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int ac, char **av)
 		initialize(&stack_info, av + 1);
 	primary_sort(&stack_info);
 	solver(&stack_info);
+	// print_a(&stack_info);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 04:10:55 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/17 22:00:01 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/23 11:33:41 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	rotate2(t_var *stack_info, char c)
 	int	tmp;
 	int	i;
 
-	if ((c == 'b' || c == 'r') && stack_info->atop > 0)
+	if ((c == 'b' || c == 'r') && stack_info->btop > 0)
 	{
 		i = stack_info->btop;
 		while (i >= 0)
