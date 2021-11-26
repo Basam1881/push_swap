@@ -58,4 +58,7 @@ pre: pfclean push
 
 dre: pfclean debug
 
+test:
+	././push_swap_tester1/push_stats.sh
+
 .PHONY: all clean fclean re

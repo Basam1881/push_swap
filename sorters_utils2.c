@@ -6,41 +6,11 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 08:34:00 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/26 15:08:53 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/26 20:26:09 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	swap_down(t_var *stack_info, char c)
-{
-	if (c == 'a')
-	{
-		if (stack_info->a_stack[stack_info->atop] > stack_info
-			->a_stack[stack_info->atop - 1] && stack_info->a_stack[stack_info
-				->atop - 1] >= stack_info->sorted_stack[stack_info->sorted_chunk])
-			swap(stack_info, 'a');
-	}
-	else
-	{
-		swap(stack_info, 'b');
-	}
-}
-
-void	swap_up(t_var *stack_info, char c)
-{
-	if (c == 'a')
-	{
-		if (stack_info->a_stack[stack_info->atop - 1] < stack_info
-			->a_stack[stack_info->atop] && stack_info->a_stack[stack_info
-				->atop] >= stack_info->sorted_stack[stack_info->sorted_chunk])
-			swap(stack_info, 'a');
-	}
-	else
-	{
-		swap(stack_info, 'b');
-	}
-}
 
 int	get_closest_b(t_var *stack_info)
 {
@@ -100,7 +70,7 @@ int	get_closest_b(t_var *stack_info)
 // 		else if (stack_info->index - old > 0 && stack_info->index - old < stack_info->btop - stack_info->index)
 // 			b_steps = stack_info->index - old;
 // 	}
-// 	if (a_steps + b_steps < stack_info->total || !stack_info->total)
+// 	if (a_steps + b_steps <= stack_info->total || !stack_info->total)
 // 	{
 // 		stack_info->total = a_steps + b_steps;
 // 		*b_val = a_index;
@@ -114,8 +84,8 @@ int	get_closest_b(t_var *stack_info)
 // 	int	b_val;
 
 // 	i = 0;
-// 	b_val = -1;
 // 	stack_info->total = 0;
+// 	first_flag = 0;
 // 	while (i <= stack_info->atop)
 // 	{
 // 		if (stack_info->a_stack[i] <= stack_info
