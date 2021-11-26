@@ -32,7 +32,6 @@ gcc -Wall -Wextra -Werror -c ft_strtrim.c -o ft_strtrim.o
 gcc -Wall -Wextra -Werror -c ft_split.c -o ft_split.o
 gcc -Wall -Wextra -Werror -c ft_itoa.c -o ft_itoa.o
 gcc -Wall -Wextra -Werror -c ft_strmapi.c -o ft_strmapi.o
- 
 gcc -Wall -Wextra -Werror -c ft_striteri.c -o ft_striteri.o
 gcc -Wall -Wextra -Werror -c ft_putchar_fd.c -o ft_putchar_fd.o
 gcc -Wall -Wextra -Werror -c ft_putstr_fd.c -o ft_putstr_fd.o
