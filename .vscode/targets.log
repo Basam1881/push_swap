@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Fri Nov 26 20:25:10 2021
+# Make data base, printed on Sat Nov 27 11:27:15 2021
 
 # Variables
 
@@ -34,16 +34,18 @@ DIRHISTORY_SIZE = 30
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
+# makefile (from `Makefile', line 15)
+GNL_DIR = ./get_next_line/
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# makefile (from `Makefile', line 19)
+# makefile (from `Makefile', line 23)
 EXEC_NAME = push_swap
 # environment
 VSCODE_VERBOSE_LOGGING = true
-# makefile (from `Makefile', line 17)
+# makefile (from `Makefile', line 21)
 NAME_ALL = push_swap.a
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000c_wm0032q5/T/vscode-ipc-c321bcb1-9167-474d-b9d8-1894f0fccbd9.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000c_wm0032q5/T/vscode-ipc-0da977f4-4133-4617-812d-8bbb32227a62.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -54,12 +56,14 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
+# makefile (from `Makefile', line 17)
+GNL_LIB = ./get_next_line/gnl.a
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # makefile (from `Makefile', line 11)
 LIBFT_DIR = ./libft/
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.vSgEw0GvsT/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.cEdqYHfO8m/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -104,7 +108,7 @@ MAKE_VERSION := 3.81
 USER = bnaji
 # makefile
 .DEFAULT_GOAL := all
-# makefile (from `Makefile', line 15)
+# makefile (from `Makefile', line 19)
 NAME = ft_push_swap.a
 # environment
 LESS = -R
@@ -155,11 +159,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4224
+VSCODE_PID = 26557
 # makefile (from `Makefile', line 13)
 LIBFT_LIB = ./libft/libft.a
 # variable set hash-table stats:
-# Load=73/1024=7%, Rehash=0, Collisions=4/99=4%
+# Load=75/1024=7%, Rehash=0, Collisions=6/101=6%
 
 # Pattern-specific Variable Values
 
@@ -167,9 +171,9 @@ LIBFT_LIB = ./libft/libft.a
 
 # Directories
 
-# . (device 16777225, inode 2533886): 49 files, no impossibilities.
+# . (device 16777225, inode 2533886): 46 files, no impossibilities.
 
-# 49 files, no impossibilities in 1 directories.
+# 46 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -186,7 +190,7 @@ e:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 53):
+#  commands to execute (from `Makefile', line 59):
 	rm -rf $(EXEC_NAME)
 	
 
@@ -218,14 +222,14 @@ push: debug
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 31):
+#  commands to execute (from `Makefile', line 37):
 	gcc $(NAME_ALL) -o $(EXEC_NAME)
 	
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-26 20:19:38
+#  Last modified 2021-11-27 11:26:29
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -235,7 +239,7 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 34):
+#  commands to execute (from `Makefile', line 40):
 	gcc -c $(CFLAG) $(SRC_NAME)
 	ar -r $(NAME) $(OBJ_NAME)
 	libtool -static -o $(NAME_ALL) $(NAME) $(LIBFT_LIB)
@@ -245,7 +249,7 @@ test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 62):
+#  commands to execute (from `Makefile', line 68):
 	././push_swap_tester1/push_stats.sh
 	
 
@@ -254,21 +258,22 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 43):
+#  commands to execute (from `Makefile', line 49):
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -rf $(NAME) $(NAME_ALL)
 	
 
 ft_push_swap.a:
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-26 20:20:02
+#  Last modified 2021-11-27 11:26:07
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `Makefile', line 24):
+#  commands to execute (from `Makefile', line 29):
 	$(MAKE) -C $(LIBFT_DIR) all
+	$(MAKE) -C $(GNL_DIR) all
 	gcc -c $(CFLAG) $(SRC_NAME)
 	ar -r $(NAME) $(OBJ_NAME)
-	libtool -static -o $(NAME_ALL) $(NAME) $(LIBFT_LIB)
+	libtool -static -o $(NAME_ALL) $(NAME) $(LIBFT_LIB) $(GNL_LIB)
 	gcc $(NAME_ALL) -o $(EXEC_NAME)
 	
 
@@ -276,7 +281,7 @@ pclean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 47):
+#  commands to execute (from `Makefile', line 53):
 	rm -rf $(OBJ_NAME)
 	
 
@@ -284,7 +289,7 @@ pfclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 50):
+#  commands to execute (from `Makefile', line 56):
 	rm -rf $(NAME) $(NAME_ALL)
 	
 
@@ -305,7 +310,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 39):
+#  commands to execute (from `Makefile', line 45):
 	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -rf $(OBJ_NAME)
 	
@@ -323,6 +328,7 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Nov 26 20:25:10 2021
+ 
+# Finished Make data base on Sat Nov 27 11:27:15 2021
 
  

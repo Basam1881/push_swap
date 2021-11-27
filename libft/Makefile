@@ -32,7 +32,8 @@ SRC_NAME = ft_atoi.c\
 		ft_putchar_fd.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c\
+		ft_strcmp.c
 
 SRC_BONUS = ft_lstnew.c\
 		ft_lstadd_front.c\
@@ -56,14 +57,14 @@ NAME = libft.a
 all: ${NAME}
 
 ${NAME}: ${OBJ_NAME}
-	gcc -c ${CFLAG} ${SRC_NAME} -I ../so_long.h
+	gcc -c ${CFLAG} ${SRC_NAME}
 	ar -rc $(NAME) $(OBJ_NAME)
 
 %.o: %.c
 	gcc ${CFLAG} -c $< -o ${<:%.c=%.o}
 
 bonus: ${NAME} ${OBJ_BONUS}
-	gcc -c ${CFLAG} ${SRC_BONUS} -I ../so_long.h
+	gcc -c ${CFLAG} ${SRC_BONUS}
 	ar -rc ${NAME} ${OBJ_NAME} ${OBJ_BONUS}
 
 clean:

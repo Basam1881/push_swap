@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 02:05:55 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/27 11:42:50 by bnaji            ###   ########.fr       */
+/*   Created: 2021/11/27 02:19:31 by bnaji             #+#    #+#             */
+/*   Updated: 2021/11/27 02:25:47 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_var	stack_info;
+	int	i;
 
-	if (ac == 1)
-		return (0);
-	else if (ac == 2)
-		double_check_arg(&stack_info, av[1]);
-	else
-		initialize(&stack_info, av + 1);
-	primary_sort(&stack_info);
-	solver(&stack_info);
-	return (0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

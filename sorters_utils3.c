@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 10:35:06 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/21 15:35:25 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 02:04:50 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,32 +38,6 @@ void	sort_by_size(t_var *stack_info, char c)
 		}
 	}
 	rotate_to(stack_info, c, zero_index, 0);
-}
-
-int	final_ckeck(t_var *stack_info, char c)
-{
-	int	i;
-
-	i = 0;
-	if (c == 'a')
-	{
-		while (i < stack_info->atop)
-		{
-			if (stack_info->a_stack[i] < stack_info->a_stack[i + 1])
-				return (0);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < stack_info->btop)
-		{
-			if (stack_info->a_stack[i] > stack_info->a_stack[i + 1])
-				return (0);
-			i++;
-		}
-	}
-	return (1);
 }
 
 // void	sort_last_a(t_var *stack_info)

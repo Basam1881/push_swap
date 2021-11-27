@@ -6,13 +6,13 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 04:10:55 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/23 11:33:41 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 11:25:40 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate2(t_var *stack_info, char c)
+static void	rotate2(t_var *stack_info, char c, int checker_flag)
 {
 	int	tmp;
 	int	i;
@@ -31,10 +31,11 @@ static void	rotate2(t_var *stack_info, char c)
 			i--;
 		}
 	}
-	printf("r%c\n", c);
+	if (!checker_flag)
+		printf("r%c\n", c);
 }
 
-void	rotate(t_var *stack_info, char c)
+void	rotate(t_var *stack_info, char c, int checker_flag)
 {
 	int	tmp;
 	int	i;
@@ -53,10 +54,10 @@ void	rotate(t_var *stack_info, char c)
 			i--;
 		}
 	}
-	rotate2(stack_info, c);
+	rotate2(stack_info, c, checker_flag);
 }
 
-static void	rev_rotate2(t_var *stack_info, char c)
+static void	rev_rotate2(t_var *stack_info, char c, int checker_flag)
 {
 	int	tmp;
 	int	i;
@@ -75,10 +76,11 @@ static void	rev_rotate2(t_var *stack_info, char c)
 			i++;
 		}
 	}
-	printf("rr%c\n", c);
+	if (!checker_flag)
+		printf("rr%c\n", c);
 }
 
-void	rev_rotate(t_var *stack_info, char c)
+void	rev_rotate(t_var *stack_info, char c, int checker_flag)
 {
 	int	tmp;
 	int	i;
@@ -97,5 +99,5 @@ void	rev_rotate(t_var *stack_info, char c)
 			i++;
 		}
 	}
-	rev_rotate2(stack_info, c);
+	rev_rotate2(stack_info, c, checker_flag);
 }

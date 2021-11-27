@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 20:21:36 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/27 00:32:51 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 04:02:58 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	rotate_helper(t_var *stack_info, int a, int s)
 {
 	if (stack_info->a_stack[a] == stack_info->sorted_stack[s])
-		rotate(stack_info, 'a');
+		rotate(stack_info, 'a', 0);
 }
 
 void	rev_rotate_helper(t_var *stack_info, int a, int s)
 {
 	if (stack_info->a_stack[a] == stack_info->sorted_stack[s])
-		rev_rotate(stack_info, 'a');
+		rev_rotate(stack_info, 'a', 0);
 }
 
 static void	rotate_b_to(t_var *stack_info, char c, int old, int n)
@@ -36,12 +36,12 @@ static void	rotate_b_to(t_var *stack_info, char c, int old, int n)
 			if (n - old <= old)
 			{
 				while (old++ < n)
-					rotate(stack_info, 'b');
+					rotate(stack_info, 'b', 0);
 			}
 			else
 			{
 				while (old-- >= 0)
-					rev_rotate(stack_info, 'b');
+					rev_rotate(stack_info, 'b', 0);
 			}
 		}
 		else
@@ -49,12 +49,12 @@ static void	rotate_b_to(t_var *stack_info, char c, int old, int n)
 			if (old - n <= n)
 			{
 				while (n++ < old)
-					rotate(stack_info, 'b');
+					rotate(stack_info, 'b', 0);
 			}
 			else
 			{
 				while (old-- > 0)
-					rev_rotate(stack_info, 'b');
+					rev_rotate(stack_info, 'b', 0);
 			}
 		}
 	}
@@ -71,17 +71,17 @@ void	rotate_to(t_var *stack_info, char c, int old, int n)
 				sort_b(stack_info, get_closest_b(stack_info));
 				if ((stack_info->btop - stack_info->index <= stack_info->index || stack_info->btop - (n - old) - 1 <= stack_info->index + 1) && stack_info->index < stack_info->btop && stack_info->sorted_top < 100)
 				{
-					rotate(stack_info, 'r');
+					rotate(stack_info, 'r', 0);
 					stack_info->index++;
 				}
 				else
-					rotate(stack_info, 'a');
+					rotate(stack_info, 'a', 0);
 			}
 			if (!n)
 			{
 				n = stack_info->atop + 2;
 				while (old++ < n)
-					rotate(stack_info, 'a');
+					rotate(stack_info, 'a', 0);
 			}
 		}
 		else
@@ -91,11 +91,11 @@ void	rotate_to(t_var *stack_info, char c, int old, int n)
 				sort_b(stack_info, get_closest_b(stack_info));
 				if ((stack_info->btop - stack_info->index > stack_info->index || stack_info->index - old <= stack_info->btop - stack_info->index) && stack_info->index >= 0 && stack_info->sorted_top < 100)
 				{
-					rev_rotate(stack_info, 'r');
+					rev_rotate(stack_info, 'r', 0);
 					stack_info->index--;
 				}
 				else
-					rev_rotate(stack_info, 'a');
+					rev_rotate(stack_info, 'a', 0);
 			}
 		}
 	}
