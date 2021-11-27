@@ -47,8 +47,8 @@ SRC_BONUS = ft_lstnew.c\
 
 
 
-OBJ_NAME = $(SRC_NAME:.c=.o) 
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
+OBJ_NAME = $(SRC_NAME:$%.c=$%.o) 
+OBJ_BONUS = ${SRC_BONUS:%.c=%.o}
 CFLAG = -Wall -Wextra -Werror
 NAME = libft.a
 
@@ -57,20 +57,20 @@ NAME = libft.a
 all: ${NAME}
 
 ${NAME}: ${OBJ_NAME}
-	gcc -c ${CFLAG} ${SRC_NAME}
-	ar -rc $(NAME) $(OBJ_NAME)
+	@gcc -c ${CFLAG} ${SRC_NAME}
+	@ar -rc $(NAME) $(OBJ_NAME)
 
 %.o: %.c
-	gcc ${CFLAG} -c $< -o ${<:%.c=%.o}
+	@gcc ${CFLAG} -c $< -o ${<:%.c=%.o}
 
 bonus: ${NAME} ${OBJ_BONUS}
-	gcc -c ${CFLAG} ${SRC_BONUS}
-	ar -rc ${NAME} ${OBJ_NAME} ${OBJ_BONUS}
+	@gcc -c ${CFLAG} ${SRC_BONUS}
+	@ar -rc ${NAME} ${OBJ_NAME} ${OBJ_BONUS}
 
 clean:
-	rm -rf ${OBJ_NAME} ${OBJ_BONUS}
+	@rm -rf ${OBJ_NAME} ${OBJ_BONUS}
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 02:14:10 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/27 03:57:23 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 18:43:43 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include "./libft/libft.h"
-# include "./get_next_line/get_next_line.h"
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
 # define MEDIAN_CHUNK 2
 # define CHUNK_NUM 6
 # define BIG_CHUNK_NUM 4
@@ -35,12 +36,12 @@ typedef struct s_var
 	int	total;
 	int	a_index;
 	int	num;
-	int	a_val;
+	int	b_index;
 }				t_var;
 
 void	print_a(t_var *stack_info);
-void	error(void);
-int		armored_atoi(const char *str);
+void	error(t_var *stack_info);
+int		armored_atoi(const char *str, t_var *stack_info);
 void	swap(t_var *stack_info, char c, int checker_flag);
 void	push(t_var *stack_info, char c, int checker_flag);
 void	rotate(t_var *stack_info, char c, int checker_flag);

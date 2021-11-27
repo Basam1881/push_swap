@@ -6,11 +6,11 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 18:32:52 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/27 04:00:38 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 18:58:49 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_2(t_var *stack_info)
 {
@@ -53,11 +53,18 @@ void	sort_4(t_var *stack_info)
 	}
 }
 
+static void	sort_5_helper(t_var *stack_info)
+{
+	sort_3(stack_info);
+	push(stack_info, 'a', 0);
+	push(stack_info, 'a', 0);
+}
+
 void	sort_5(t_var *stack_info)
 {
 	int	n;
 
-	stack_info->sorted_chunk -= 3;
+	stack_info->sorted_chunk = 2;
 	if (!is_a_sorted(stack_info))
 	{
 		n = 2;
@@ -75,10 +82,9 @@ void	sort_5(t_var *stack_info)
 			else
 				rotate(stack_info, 'a', 0);
 		}
-		if (stack_info->b_stack[stack_info->btop] < stack_info->b_stack[stack_info->btop - 1])
+		if (stack_info->b_stack[stack_info->btop] < stack_info
+			->b_stack[stack_info->btop - 1])
 			swap(stack_info, 'b', 0);
-		sort_3(stack_info);
-		push(stack_info, 'a', 0);
-		push(stack_info, 'a', 0);
+		sort_5_helper(stack_info);
 	}
 }

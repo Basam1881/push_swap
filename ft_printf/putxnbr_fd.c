@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   putxnbr_fd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 02:05:55 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/27 21:41:44 by bnaji            ###   ########.fr       */
+/*   Created: 2021/10/25 01:46:41 by bnaji             #+#    #+#             */
+/*   Updated: 2021/11/27 12:12:55 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+void	putxnbr_fd(unsigned int nb, t_flag *new_arg, int fd)
 {
-	t_var	stack_info;
+	unsigned int	new_nb;
 
-	if (ac == 1)
-		return (0);
-	else if (ac == 2)
-		double_check_arg(&stack_info, av[1]);
-	else
-		initialize(&stack_info, av + 1);
-	primary_sort(&stack_info);
-	solver(&stack_info);
-	return (0);
+	if (new_arg->zero_int_flag)
+		return ;
+	if (nb == 0)
+		putchar_fd(nb + 48, fd, new_arg);
+	else if (nb > 0)
+	{
+		new_nb = nb / 16;
+		if (new_nb != 0)
+			putxnbr_fd(new_nb, new_arg, fd);
+		if (nb % 16 < 10)
+			putchar_fd(nb % 16 + 48, fd, new_arg);
+		else
+			putchar_fd(nb % 16 + 87, fd, new_arg);
+	}
 }

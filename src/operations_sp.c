@@ -6,11 +6,11 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 02:39:34 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/27 11:21:12 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 18:58:17 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	swap(t_var *stack_info, char c, int checker_flag)
 {
@@ -23,7 +23,7 @@ void	swap(t_var *stack_info, char c, int checker_flag)
 			->a_stack[stack_info->atop - 1];
 		stack_info->a_stack[stack_info->atop - 1] = tmp;
 		if (!checker_flag)
-			printf("s%c\n", c);
+			ft_printf("s%c\n", c);
 	}
 	if ((c == 'b' || c == 's') && stack_info->btop > 0)
 	{
@@ -32,7 +32,7 @@ void	swap(t_var *stack_info, char c, int checker_flag)
 			->b_stack[stack_info->btop - 1];
 		stack_info->b_stack[stack_info->btop - 1] = tmp;
 		if (!checker_flag)
-			printf("s%c\n", c);
+			ft_printf("s%c\n", c);
 	}
 }
 
@@ -47,7 +47,7 @@ void	push(t_var *stack_info, char c, int checker_flag)
 		stack_info->b_stack[stack_info->btop] = 0;
 		stack_info->btop--;
 		if (!checker_flag)
-			printf("p%c\n", c);
+			ft_printf("p%c\n", c);
 	}
 	else if (c == 'b' && stack_info->atop > -1)
 	{
@@ -58,6 +58,6 @@ void	push(t_var *stack_info, char c, int checker_flag)
 		stack_info->a_stack[stack_info->atop] = 0;
 		stack_info->atop--;
 		if (!checker_flag)
-			printf("p%c\n", c);
+			ft_printf("p%c\n", c);
 	}
 }

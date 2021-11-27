@@ -6,11 +6,11 @@
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 01:17:59 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/27 11:42:32 by bnaji            ###   ########.fr       */
+/*   Updated: 2021/11/27 21:41:42 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "includes/push_swap.h"
 
 int	final_ckeck(t_var *stack_info)
 {
@@ -21,7 +21,6 @@ int	final_ckeck(t_var *stack_info)
 	{
 		if (stack_info->a_stack[i] < stack_info->sorted_stack[i])
 			return (0);
-		// printf("a: %d\n", stack_info->a_stack[i]);
 		i++;
 	}
 	if (stack_info->btop != -1)
@@ -31,7 +30,6 @@ int	final_ckeck(t_var *stack_info)
 
 int	check_for_operation(t_var *stack_info, char **m)
 {
-	// printf("HI\n");
 	if (!ft_strcmp(*m, "sa\n"))
 		swap(stack_info, 'a', 1);
 	else if (!ft_strcmp(*m, "sb\n"))
@@ -55,7 +53,7 @@ int	check_for_operation(t_var *stack_info, char **m)
 	else if (!ft_strcmp(*m, "rrr\n"))
 		rev_rotate(stack_info, 'r', 1);
 	else
-		error();
+		error(stack_info);
 	return (1);
 }
 
@@ -70,14 +68,11 @@ void	read_operations(t_var *stack_info)
 			break ;
 		if (!(check_for_operation(stack_info, &m)))
 			;
-			// error();
 	}
-	// if (*m)
-	// 	error();
 	if (final_ckeck(stack_info))
-		printf("OK\n");
+		ft_printf("OK\n");
 	else
-		printf("KO\n");
+		ft_printf("KO\n");
 }
 
 int	main(int ac, char **av)

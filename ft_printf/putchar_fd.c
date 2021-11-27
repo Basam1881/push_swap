@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.c                                           :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bnaji <bnaji@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 02:12:24 by bnaji             #+#    #+#             */
-/*   Updated: 2021/11/16 02:14:06 by bnaji            ###   ########.fr       */
+/*   Created: 2021/10/01 10:00:59 by bnaji             #+#    #+#             */
+/*   Updated: 2021/11/27 12:06:17 by bnaji            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	error(void)
+void	putchar_fd(char c, int fd, t_flag *new_arg)
 {
-	write(2, "Error\n", 6);
-	exit (0);
+	write(fd, &c, 1);
+	new_arg->counter++;
+	new_arg->print_flag = 0;
 }
